@@ -1,21 +1,61 @@
-// Maze.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
-#include "pch.h"
 #include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+char maze[100][200];
+
+/**
+ * Auto-generated code below aims at helping you parse
+ * the standard input according to the problem statement.
+ **/
 
 int main()
 {
-    std::cout << "Hello World!\n"; 
+	int R = 100; // number of rows.
+	int C = 200; // number of columns.
+	int A; // number of rounds between the time the alarm countdown is activated and the time the alarm goes off.
+	
+	cin >> R >> C >> A; cin.ignore();
+	int KR; // row where Kirk is located.
+	int KC; // column where Kirk is located.
+	int el_r = 0, el_c = 0;
+	// game loop
+	while (el_c<R) 
+	{
+		cin >> KR >> KC; cin.ignore();
+		for (int i = 0; i < R; i++) 
+		{
+
+			string ROW; // C of the characters in '#.TC?' (i.e. one line of the ASCII maze).
+			cin >> ROW; cin.ignore();
+			
+			
+
+		
+				el_r = 0;
+				while (el_r < C) {
+					maze[el_c][el_r] = ROW[el_r];
+					el_r++;
+				
+				el_c++;
+			}
+				
+		}		
+	}
+
+		for (int i = 0; i < C; i++) {
+			for (int j = 0; j < C; j++) {
+				cout << maze[i][j] <<" ";
+			}
+
+			cout << endl;
+
+		}
 }
+	
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
 
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+
+
