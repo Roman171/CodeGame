@@ -4,7 +4,8 @@
 #include <algorithm>
 
 using namespace std;
-char maze[100][200];
+char input_maze[100][200];
+int maze[100][200];
 
 /**
  * Auto-generated code below aims at helping you parse
@@ -28,25 +29,30 @@ int main()
 		for (int i = 0; i < R; i++) 
 		{
 
-			string ROW; // C of the characters in '#.TC?' (i.e. one line of the ASCII maze).
+			string ROW; // C of the characters in '#.TC?' (i.e. one line of the ASCII input_maze).
 			cin >> ROW; cin.ignore();
-			
-			
 
-		
 				el_r = 0;
-				while (el_r < C) {
-					maze[el_c][el_r] = ROW[el_r];
-					el_r++;
+				while (el_r < C) 
+				{
+					input_maze[el_c][el_r] = ROW[el_r];
 				
-				el_c++;
-			}
-				
+					if (input_maze[el_c][el_r] == '#') {maze[el_c][el_r] = 0;}
+					if (input_maze[el_c][el_r] == '.') {maze[el_c][el_r] = 1;}
+					if (input_maze[el_c][el_r] == '?') {maze[el_c][el_r] = 2;}
+					if (input_maze[el_c][el_r] == 'T') {maze[el_c][el_r] = 3;}
+					if (input_maze[el_c][el_r] == 'C') {maze[el_c][el_r] = 4;}	
+					el_r++;	
+				}
+				el_c++;	
 		}		
 	}
 
-		for (int i = 0; i < C; i++) {
-			for (int j = 0; j < C; j++) {
+
+		for (int i = 0; i < R; i++) 
+		{
+			for (int j = 0; j < C; j++) 
+			{
 				cout << maze[i][j] <<" ";
 			}
 
